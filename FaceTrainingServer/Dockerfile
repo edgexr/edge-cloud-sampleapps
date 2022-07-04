@@ -1,4 +1,4 @@
-FROM python:3.6.6-onbuild
+FROM python:3.6.15-slim
 COPY requirements.txt /tmp
 WORKDIR /tmp
 RUN pip install -r requirements.txt
