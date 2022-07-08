@@ -15,7 +15,7 @@
 
     <EditTextPreference
         android:dependency="@string/pref_default_dme_hostname"
-        android:defaultValue="demo.dme.edgexr.net:50051"
+        android:defaultValue="demo.dme.edgecloud.net:50051"
         android:key="@string/pref_dme_hostname"
         android:summary="@string/pref_summary_dme_hostname"
         android:title="@string/pref_title_dme_hostname"
