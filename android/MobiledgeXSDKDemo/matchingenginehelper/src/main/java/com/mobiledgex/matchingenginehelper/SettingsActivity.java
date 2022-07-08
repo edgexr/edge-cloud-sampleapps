@@ -273,7 +273,6 @@ public class SettingsActivity extends AppCompatActivity implements
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-            String TAG = "BDA";
             Log.i(TAG, "onSharedPreferenceChanged(" + key + ")");
             Preference pref = findPreference(key);
 
@@ -303,7 +302,6 @@ public class SettingsActivity extends AppCompatActivity implements
 
             if (key.equals(prefKeyDmeHostname)) {
                 String summary = getResources().getString(R.string.pref_summary_dme_hostname);
-                Log.i(TAG, "summary=" + summary + " title=" + pref.getTitle());
                 pref.setSummary(summary + ": " + ((EditTextPreference)pref).getText());
             }
 
