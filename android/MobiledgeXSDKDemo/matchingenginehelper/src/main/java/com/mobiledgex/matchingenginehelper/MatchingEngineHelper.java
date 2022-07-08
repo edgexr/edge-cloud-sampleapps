@@ -92,7 +92,7 @@ public class MatchingEngineHelper implements SharedPreferences.OnSharedPreferenc
     private final View mView;
     private EdgeEventsSubscriber mEdgeEventsSubscriber;
     public int mDmePort = 50051;
-    public static final String DEFAULT_DME_HOSTNAME = "eu-mexdemo.dme.mobiledgex.net"; //TODO: Change back to wifi whenever that gets fixed.
+    public static final String DEFAULT_DME_HOSTNAME = "demo.dme.edgecloud.net"; //TODO: Change back to wifi whenever that gets fixed.
     public static final String DEFAULT_CARRIER_NAME = "";
     public static final String DEF_HOSTNAME_PLACEHOLDER = "Default";
     public static final String DEFAULT_FIND_CLOUDLET_MODE = "PROXIMITY";
@@ -1041,6 +1041,7 @@ public class MatchingEngineHelper implements SharedPreferences.OnSharedPreferenc
                 String message = e.getLocalizedMessage()+" Default value will be used.";
                 Log.e(TAG, message);
                 Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+                meHelperInterface.showError(message);
                 dmeHostname = DEFAULT_DME_HOSTNAME;
             }
 
