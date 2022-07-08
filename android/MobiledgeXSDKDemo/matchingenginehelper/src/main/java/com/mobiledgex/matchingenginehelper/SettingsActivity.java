@@ -217,6 +217,8 @@ public class SettingsActivity extends AppCompatActivity implements
             onSharedPreferenceChanged(prefs, prefKeyAppName);
             onSharedPreferenceChanged(prefs, prefKeyAppVersion);
             onSharedPreferenceChanged(prefs, prefKeyOrgName);
+
+            onSharedPreferenceChanged(prefs, prefKeyDmeHostname); // TODO: Remove when we switch back to using a web hosted provisioning file. See next comment.
             // prefKeyDmeHostname does not need initialized here, because it is initialized with
             // the results of the dme-list.html call below.
 
@@ -271,6 +273,7 @@ public class SettingsActivity extends AppCompatActivity implements
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+            String TAG = "BDA";
             Log.i(TAG, "onSharedPreferenceChanged(" + key + ")");
             Preference pref = findPreference(key);
 
@@ -300,7 +303,8 @@ public class SettingsActivity extends AppCompatActivity implements
 
             if (key.equals(prefKeyDmeHostname)) {
                 String summary = getResources().getString(R.string.pref_summary_dme_hostname);
-                pref.setSummary(summary + ": " + getRegionFromDme((ListPreference) pref));
+                Log.i(TAG, "summary=" + summary + " title=" + pref.getTitle());
+                pref.setSummary(summary + ": " + ((EditTextPreference)pref).getText());
             }
 
             if (key.equals(prefKeyOperatorName)) {
