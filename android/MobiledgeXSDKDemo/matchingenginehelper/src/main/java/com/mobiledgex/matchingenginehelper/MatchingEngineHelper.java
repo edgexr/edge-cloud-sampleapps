@@ -1040,7 +1040,6 @@ public class MatchingEngineHelper implements SharedPreferences.OnSharedPreferenc
             } catch (HostParseException e) {
                 String message = e.getLocalizedMessage()+" Default value will be used.";
                 Log.e(TAG, message);
-                meHelperInterface.showError(message);
                 Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
                 meHelperInterface.showError(message);
                 dmeHostname = DEFAULT_DME_HOSTNAME;
